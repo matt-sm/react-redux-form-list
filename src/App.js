@@ -10,9 +10,11 @@ import ListForm from './components/ListForm.js';
 class App extends React.Component {
   render() {
     return (
-      <Provider store={ store }>
-        <ListForm />
-      </Provider>
+      <div className="container">
+        <Provider store={ store }>
+          <ListForm />
+        </Provider>
+      </div>
     );
   }
 }
