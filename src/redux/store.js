@@ -1,13 +1,13 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { combineForms } from 'react-redux-form';
+import thunk from 'redux-thunk';
 
-const initialUserState = {
-  firstName: '',
-  lastName: ''
-};
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(combineForms({
-  user: initialUserState,
-}));
+  otherForm: { foo: 'bar'},
+  usersForm: {
+  	users: []
+  }
+}), composeEnhancers(applyMiddleware(thunk)));
 
 export default store;
