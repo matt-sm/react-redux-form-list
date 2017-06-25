@@ -34,18 +34,18 @@ class UsersForm extends React.Component {
           <div key={i}>
             <h2>User #{i+1}</h2>
             <div>
-              <label htmlFor={`users-${i}-firstName`}>First name:</label>
-              <Control.text model={`${model}.users.[${i}].firstName`} id={`users-${i}-firstName`} validators={{ required }}/>
+              <label htmlFor={`firstName-${i}`}>First name:</label>
+              <Control.text model={`.users.[${i}].firstName`} id={`firstName-${i}`} validators={{ required }}/>
               <CustomErrors
-                model={`${model}.users.[${i}].firstName`}
+                model={`.users.[${i}].firstName`}
                 messages={{required: 'Please enter a first name.'}}
               />
             </div>
             <div>
-              <label htmlFor={`users-${i}-lastName`}>Last name:</label>
-              <Control.text model={`${model}.users.[${i}].lastName`} id={`users-${i}-lastName`}  validators={{ required }}/>
+              <label htmlFor={`lastName-${i}`}>Last name:</label>
+              <Control.text model={`.users.[${i}].lastName`} id={`lastName-${i}`}  validators={{ required }}/>
               <CustomErrors
-                model={`${model}.users.[${i}].lastName`}
+                model={`.users.[${i}].lastName`}
                 messages={{required: 'Please enter a last name.'}}
               />
             </div>
