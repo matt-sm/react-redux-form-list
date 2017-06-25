@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Form, Control, actions } from 'react-redux-form';
 import CustomErrors from './CustomErrors';
-import formProps from '../redux/formPropsSelector';
 
 const required = val => val && val.length;
 
@@ -68,14 +67,16 @@ class UsersForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    ...formProps(state, 'usersForm')
+    usersForm: state.usersForm, 
+    model: 'usersForm'
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         createUser: (model) => {
-            dispatch(actions.push(`${model}.users`, {}));
+            const initialUserState = {firstName: '', lastName: ''};
+            dispatch(actions.push(`${model}.users`, initialUserState));
         },
         removeUser: (model, id) => {
             dispatch(actions.remove(`${model}.users`, id));
